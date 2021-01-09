@@ -1,5 +1,5 @@
 [<AutoOpen>]
-module Parsec
+module ParsecDeprecated
     open FSharp.Core
     
     let toString = (List.map string) >> List.reduce (+) 
@@ -79,7 +79,8 @@ module Parsec
         Function: (State -> Result<'a * State>)
         Label : string
     }
-    let ref p = lazy (p)  
+
+
     let run word p = word |> p.Function 
     
     let give result = 
